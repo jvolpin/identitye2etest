@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 /**
  * Created by Juan on 21/10/2017.
  */
-public class ScanDirectory {
+public class DirectoryScanner {
 
     public List<Path> listFilesForFolder(final String folder) throws IOException {
         List<Path> pathList = new ArrayList<>();
