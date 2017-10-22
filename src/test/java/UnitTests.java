@@ -21,7 +21,7 @@ public class UnitTests {
     }
     @Test
     public void getMimeTypeTest(){
-        String folder = "D:\\workspace\\test";
+        String folder = "D:\\downloads";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getMimeType(Path)));
@@ -43,8 +43,8 @@ public class UnitTests {
     @Test
     public void filterSheetsTest() {
         String folder = "D:\\workspace\\test";
-        DirectoryScanner sd = new DirectoryScanner();
+        DirectoryScanner ds = new DirectoryScanner();
         DataFilter df = new DataFilter();
-        System.out.println(df.filterSheets(sd.listFilesForFolder(folder)));
+        System.out.println(df.filterSheets(ds.listFilesForFolder(folder)));
     }
 }
