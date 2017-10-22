@@ -12,12 +12,16 @@ import java.util.stream.Stream;
  */
 public class DirectoryScanner {
 
-    public List<Path> listFilesForFolder(final String folder) throws IOException {
+    public List<Path> listFilesForFolder(final String folder) {
         List<Path> pathList = new ArrayList<>();
         try (Stream<Path> paths = Files.walk(Paths.get(folder))) {
             paths
                     .filter(Files::isRegularFile)
                     .collect(Collectors.toCollection(()->pathList));
+        }
+        catch(IOException ex) {
+            System.out.println (ex.toString());
+            System.out.println(folder + " doesn't seem to be a folder");
         }
         return pathList;
     }
