@@ -21,7 +21,7 @@ public class UnitTests {
     }
     @Test
     public void getMimeTypeTest(){
-        String folder = "D:\\downloads";
+        String folder = "D:\\workspace\\test";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getMimeType(Path)));
