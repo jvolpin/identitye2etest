@@ -14,30 +14,37 @@ public class UnitTests {
     }
     @Test
     public void getSizeTest(){
-        String folder = "D:\\Google Drive";
+        String folder = "D:\\workspace\\test";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getSize(Path)));
     }
     @Test
     public void getMimeTypeTest(){
-        String folder = "D:\\Google Drive";
+        String folder = "D:\\workspace\\test";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getMimeType(Path)));
     }
     @Test
     public void getNameTest(){
-        String folder = "D:\\Google Drive";
+        String folder = "D:\\workspace\\test";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getName(Path)));
     }
     @Test
     public void getFileExtensionTest(){
-        String folder = "D:\\Google Drive";
+        String folder = "D:\\workspace\\test";
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getFileExtension(Path)));
+    }
+    @Test
+    public void filterSheetsTest() {
+        String folder = "D:\\workspace\\test";
+        DirectoryScanner sd = new DirectoryScanner();
+        DataFilter df = new DataFilter();
+        System.out.println(df.filterSheets(sd.listFilesForFolder(folder)));
     }
 }
