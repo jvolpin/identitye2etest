@@ -15,7 +15,7 @@ public class LandingPage extends Abstract {
         super(driver);
     }
 
-    public InsertPlatePage clickGetStarted(){
+    public InsertPlatePage clickGetStarted() {
         startButton.click();
         return new InsertPlatePage(driver);
     }

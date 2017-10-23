@@ -23,14 +23,14 @@ public class DataExtractor {
     public int getSize(Path file) {
         int size = 0;
         try {
-            size = ((int)Files.readAttributes(file, BasicFileAttributes.class).size());
-        }
-        catch(IOException ex) {
-            System.out.println (ex.toString());
+            size = ((int) Files.readAttributes(file, BasicFileAttributes.class).size());
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
             System.out.println(file + " doesn't seem to be a file");
         }
         return size;
     }
+
     public String getMimeType(Path file) {
         String mimeType = null;
         try {
@@ -42,13 +42,13 @@ public class DataExtractor {
             metadata.add(Metadata.RESOURCE_NAME_KEY, getName(file));
             MediaType mediaType = detector.detect(stream, metadata);
             mimeType = mediaType.toString();
-        }
-        catch(IOException ex) {
-            System.out.println (ex.toString());
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
             System.out.println(file + " doesn't seem to be a file");
         }
         return mimeType;
     }
+
     public String getName(Path file) {
         return file.getFileName().toString();
     }

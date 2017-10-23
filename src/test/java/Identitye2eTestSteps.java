@@ -27,19 +27,22 @@ public class Identitye2eTestSteps {
     // this is also here for simplicity - it could be in a Serenity session if needed to be shared among steps files
     private WebDriver driver;
     List<String> platesList;
+
     @Before
     public void setUp() {
         // I will keep things simple and assume we only care about Chrome
         driver = new ChromeDriver();
     }
+
     @After
     public void tearDown() {
         if (null != driver) {
             driver.quit();
         }
     }
+
     @Given("^the user has a valid spreadsheet with a valid plate number$")
-    public void readSpreadsheet(){
+    public void readSpreadsheet() {
         DirectoryScanner ds = new DirectoryScanner();
         DataFilter df = new DataFilter();
         String location = "D:\\workspace\\test";
@@ -61,16 +64,18 @@ public class Identitye2eTestSteps {
             e.printStackTrace();
         }
     }
+
     @When("^the user consults the provided URL$")
-    public void the_user_consults_the_provided_URL(){
+    public void the_user_consults_the_provided_URL() {
         driver.get(URL);
         LandingPage lp = new LandingPage(driver);
         lp.clickGetStarted()
                 .completePlateTextBox(platesList.get(0))
                 .clickSubmitButton();
     }
+
     @Then("^the correct make and color details should be displayed$")
-    public void the_correct_make_and_color_details_should_be_displayed(){
+    public void the_correct_make_and_color_details_should_be_displayed() {
         ConfirmationPage cp = new ConfirmationPage(driver);
         Assert.assertThat("make is correct", cp.getMake(), is(platesList.get(1)));
         Assert.assertThat("colour is correct", cp.getColour(), is(platesList.get(2)));

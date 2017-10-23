@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
  * Created by Juan on 22/10/2017.
  */
 public class InsertPlatePage extends Abstract {
-    @FindBy(id="Vrm")
+    @FindBy(id = "Vrm")
     private WebElement plateTextBox;
 
     @FindBy(className = "button")

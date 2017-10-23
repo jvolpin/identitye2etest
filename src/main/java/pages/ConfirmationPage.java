@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 /**
  * Created by Juan on 22/10/2017.
  */
-public class ConfirmationPage extends Abstract{
+public class ConfirmationPage extends Abstract {
 
     @FindBy(xpath = "//li[2]/span[2]/strong")
     private WebElement make;
