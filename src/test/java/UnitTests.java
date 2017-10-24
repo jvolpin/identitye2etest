@@ -1,21 +1,19 @@
 import org.junit.Test;
 
-import java.nio.file.Path;
-
 /**
  * Created by Juan on 21/10/2017.
  */
-public class UnitTests {
+public class UnitTests extends AbstractTest{
     @Test
     public void directoryScannerTest() {
-        String folder = "D:\\Google Drive";
+        String folder = getPathToFiles();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(Path.getFileName()));
     }
 
     @Test
     public void getSizeTest() {
-        String folder = "D:\\workspace\\test";
+        String folder = getPathToFiles();
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getSize(Path)));
@@ -23,7 +21,7 @@ public class UnitTests {
 
     @Test
     public void getMimeTypeTest() {
-        String folder = "D:\\workspace\\test";
+        String folder = getPathToFiles();
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getMimeType(Path)));
@@ -31,7 +29,7 @@ public class UnitTests {
 
     @Test
     public void getNameTest() {
-        String folder = "D:\\workspace\\test";
+        String folder = getPathToFiles();
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getName(Path)));
@@ -39,7 +37,7 @@ public class UnitTests {
 
     @Test
     public void getFileExtensionTest() {
-        String folder = "D:\\workspace\\test";
+        String folder = getPathToFiles();
         DataExtractor de = new DataExtractor();
         DirectoryScanner sd = new DirectoryScanner();
         sd.listFilesForFolder(folder).stream().forEach(Path -> System.out.println(de.getFileExtension(Path)));

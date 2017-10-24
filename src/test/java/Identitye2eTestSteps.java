@@ -21,7 +21,7 @@ import static org.hamcrest.CoreMatchers.is;
 /**
  * Created by Juan on 22/10/2017.
  */
-public class Identitye2eTestSteps {
+public class Identitye2eTestSteps extends AbstractTest {
     // we shouldn't have this hard-coded here, but as it is a code test I think it's OK
     private static final String URL = "https://www.gov.uk/get-vehicle-information-from-dvla";
     // this is also here for simplicity - it could be in a Serenity session if needed to be shared among steps files
@@ -45,7 +45,7 @@ public class Identitye2eTestSteps {
     public void readSpreadsheet() {
         DirectoryScanner ds = new DirectoryScanner();
         DataFilter df = new DataFilter();
-        String location = "D:\\workspace\\test";
+        String location = getPathToFiles();
         Path file = df.filterSheets(ds.listFilesForFolder(location));
         String line = "";
         String cvsSplitBy = ",";
